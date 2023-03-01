@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { View, StyleSheet, TextInput, Button } from 'react-native';
 import Colors from '../../screens/constants/colors';
+
 export default function AddTaskForm() {
-  const [titleTaskEntered, setTitleTaskEntered] = '';
+  const [titleTaskEntered, setTitleTaskEntered] = useState('');
+
   return (
     <View style={styles.addTaskOuterContainer}>
       <TextInput
         style={styles.addTaskInput}
         value={titleTaskEntered}
-        onChange={(e) => setTitleTaskEntered(e.target.valueOf)}
+        onChangeText={(e) => setTitleTaskEntered(e)}
       />
       <Button
         onPress={(e) => console.log('bip')}
