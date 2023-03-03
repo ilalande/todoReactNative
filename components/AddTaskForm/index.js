@@ -11,6 +11,7 @@ export default function AddTaskForm() {
         style={styles.addTaskInput}
         value={titleTaskEntered}
         onChangeText={(e) => setTitleTaskEntered(e)}
+        placeholder='Ajouter une tâche'
       />
       <Button
         onPress={(e) => console.log('bip')}
@@ -24,16 +25,20 @@ export default function AddTaskForm() {
 const styles = StyleSheet.create({
   addTaskOuterContainer: {
     backgroundColor: Colors.yellow,
-    height: 50,
+    borderRadius: 4,
+    height: 70,
     width: '80%',
     flexDirection: 'row',
+    marginVertical: 6,
   },
   addTaskInput: {
+    margin: 40,
     flex: 5,
-    fontSize: 32,
-    borderBottomColor: Colors.primaryGrey,
+    borderRadius: 4,
+    fontSize: 20,
+    borderColor: Colors.primaryGrey,
     backgroundColor: Colors.primaryWhite,
-    borderBottomWidth: 2,
+    borderWidth: 1,
     color: 'grey',
     marginVertical: 8,
     fontWeight: 'bold',

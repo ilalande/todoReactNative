@@ -44,7 +44,6 @@ export function getTasks(): GetTasksAction {
 }
 
 export function setTasksInStore(payload: ITask[]): SetTasksInStoreAction {
-  console.log('from action creator');
   return {
     type: types.SETINSTORE,
     payload,
