@@ -1,12 +1,28 @@
 import store from './redux/store';
 import { Provider } from 'react-redux';
-import { Button, StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import StartListScreen from './screens/StartList';
-import { useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import TaskDetailScreen from './screens/TaskDetail';
 
-function App() {
-  let screen = <StartListScreen />;
-  return <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>;
+export default function App() {
+  const Stack = createNativeStackNavigator();
+  return (
+    <Provider store={store}>
+      <NavigationContainer>
+        <SafeAreaView style={styles.rootScreen}>
+          <Stack.Navigator initialRouteName='Home'>
+            <Stack.Screen name='StartListScreen' component={StartListScreen} />
+            <Stack.Screen
+              name='TaskDetailScreen'
+              component={TaskDetailScreen}
+            />
+          </Stack.Navigator>
+        </SafeAreaView>
+      </NavigationContainer>
+    </Provider>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -14,10 +30,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-export default () => {
-  return (
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-};

@@ -1,18 +1,14 @@
 import { useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import Colors from '../../screens/constants/colors';
-import TaskData from '../TaskData';
+import TaskListItem from '../TaskListItem';
 export default function TaskList(props) {
-  // useEffect(() => {
-  //   console.log(props);
-  // }, []);
-
   return (
     <View style={styles.todoContainer}>
       <FlatList
         data={props.tasks}
         renderItem={(itemData) => {
-          return <TaskData todo={itemData} />;
+          return <TaskListItem todo={itemData} />;
         }}
         keyExtractor={(item, index) => {
           return item.taskId;

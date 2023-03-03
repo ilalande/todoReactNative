@@ -1,14 +1,17 @@
-import { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import Colors from '../../screens/constants/colors';
-export default function TaskData(props) {
-  // useEffect(() => {
-  //   console.log(props.todo);
-  // }, []);
-
+export default function TaskListItem(props) {
+  const navigation = useNavigation();
   return (
     <View style={styles.todoItem}>
       <Text>{props.todo.item.title}</Text>
+      <Button
+        title='Detail'
+        onPress={() => {
+          navigation.navigate('TaskDetailScreen');
+        }}
+      />
     </View>
   );
 }
