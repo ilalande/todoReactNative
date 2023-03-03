@@ -3,14 +3,21 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 import Colors from '../../screens/constants/colors';
 export default function TaskListItem(props) {
   const navigation = useNavigation();
+  const { taskId } = props.todo.item;
+  const itemDatas = props.todo.item;
+
   return (
     <View style={styles.todoItem}>
       <Text>{props.todo.item.title}</Text>
       <Button
         title='Detail'
         onPress={() => {
-          navigation.navigate('TaskDetailScreen');
+          navigation.navigate('TaskDetailScreen', {
+            itemId: { taskId },
+            itemDatas: { itemDatas },
+          });
         }}
+        color={Colors.primaryGrey}
       />
     </View>
   );
